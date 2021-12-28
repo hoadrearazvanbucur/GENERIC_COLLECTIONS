@@ -13,7 +13,7 @@ namespace GENERIC_COLLECTIONS
 
         void adaugarePozitie(T data, int index);
         Nod<T> obtine(int index);
-        void modificare(T data,T dataInlocuire);
+        void modificare(T dataInlocuit, T dataInlocuire);
 
         bool exista(T data);
         bool listaGoala();

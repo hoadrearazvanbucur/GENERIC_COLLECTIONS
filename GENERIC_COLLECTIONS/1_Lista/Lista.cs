@@ -16,13 +16,15 @@ namespace GENERIC_COLLECTIONS
 
         public void adaugareSfarsit(T data)
         {
-            if (head == null){
+            if (head == null)
+            {
                 Nod<T> n = new Nod<T>();
                 n.Data = data;
                 n.Next = null;
                 this.head = n;
             }
-            else{
+            else
+            {
                 Nod<T> n = new Nod<T>();
                 Nod<T> iterator = head;
                 while (iterator.Next != null)
@@ -34,13 +36,15 @@ namespace GENERIC_COLLECTIONS
         }
         public void adaugareStart(T data)
         {
-            if (head == null){
+            if (head == null)
+            {
                 Nod<T> n = new Nod<T>();
                 n.Data = data;
                 n.Next = null;
                 this.head = n;
             }
-            else{
+            else
+            {
                 Nod<T> nou = new Nod<T>();
                 nou.Data = data;
                 nou.Next = head;
@@ -52,8 +56,10 @@ namespace GENERIC_COLLECTIONS
         {
             int index = this.pozitieData(data), k = 0;
             Nod<T> save = head;
-            if (index < dimensiune() && index > 0){
-                while (k < index - 1){
+            if (index < dimensiune() && index > 0)
+            {
+                while (k < index - 1)
+                {
                     save = save.Next;
                     k++;
                 }
@@ -95,7 +101,8 @@ namespace GENERIC_COLLECTIONS
         {
             int k = 0;
             Nod<T> save = head;
-            while (save != null){
+            while (save != null)
+            {
                 if (k == index)
                     return save;
                 save = save.Next;
@@ -103,16 +110,17 @@ namespace GENERIC_COLLECTIONS
             }
             return null;
         }
-        public void modificare(T data,T dataInlocuire)
+        public void modificare(T dataInlocuit, T dataInlocuire)
         {
-            this.adaugarePozitie(dataInlocuire, this.pozitieData(data));
-            this.stergere(data);
+            this.adaugarePozitie(dataInlocuire, this.pozitieData(dataInlocuit));
+            this.stergere(dataInlocuit);
         }
 
         public bool exista(T data)
         {
             Nod<T> save = head;
-            while (save != null){
+            while (save != null)
+            {
                 if (save.Data.CompareTo(data) == 0)
                     return true;
                 save = save.Next;
@@ -129,7 +137,8 @@ namespace GENERIC_COLLECTIONS
         {
             int k = 0;
             Nod<T> save = head;
-            while (save != null){
+            while (save != null)
+            {
                 k++;
                 save = save.Next;
             }
@@ -137,10 +146,11 @@ namespace GENERIC_COLLECTIONS
         }
 
         public int pozitieData(T data)
-        { 
+        {
             Nod<T> save = head;
             int k = 0;
-            while (save != null){
+            while (save != null)
+            {
                 if (save.Data.Equals(data))
                     return k;
                 k++;
@@ -149,13 +159,15 @@ namespace GENERIC_COLLECTIONS
             return -1;
         }
 
-        public void sortare(Comparer<T> comparator,int value)
+        public void sortare(Comparer<T> comparator, int value)
         {
             int flag;
-            do{
+            do
+            {
                 flag = 0;
                 for (int i = 0; i < this.dimensiune() - 1; i++)
-                    if (comparator.Compare(this.obtine(i).Data, this.obtine(i + 1).Data) == value){
+                    if (comparator.Compare(this.obtine(i).Data, this.obtine(i + 1).Data) == value)
+                    {
                         T aux = this.obtine(i).Data;
                         this.obtine(i).Data = this.obtine(i + 1).Data;
                         this.obtine(i + 1).Data = aux;
@@ -169,8 +181,9 @@ namespace GENERIC_COLLECTIONS
             Nod<T> save = this.head;
             int k = 1;
             string text = "";
-            while (save != null){
-                text += $"Obiectul {k}\n---------------------\n" +save.Data.ToString() + "\n---------------------\n\n";
+            while (save != null)
+            {
+                text += $"Obiectul {k}\n---------------------\n" + save.Data.ToString() + "\n---------------------\n\n";
                 save = save.Next;
                 k++;
             }
